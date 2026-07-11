@@ -1,7 +1,8 @@
 /* ============================================================
    AUREON SYSTEMS — script.js
    Modules: navbar, mobile menu, scroll reveal, counters,
-            accordion, cursor glow, card tilt, smooth anchor scroll
+            accordion, cursor glow, card tilt, parallax,
+            smooth anchor scroll
    ============================================================ */
 
 (() => {
@@ -23,6 +24,7 @@
     if (!prefersReducedMotion) {
       initCursorGlow();
       initCardTilt();
+      initParallax();
     }
   });
 
@@ -104,13 +106,12 @@
       return;
     }
 
+    // Elements ease in on entry and ease back out on exit — in either
+    // scroll direction — rather than revealing once and staying static.
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          }
+          entry.target.classList.toggle('is-visible', entry.isIntersecting);
         });
       },
       { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
@@ -263,5 +264,61 @@
       card.addEventListener('pointermove', onMove);
       card.addEventListener('pointerleave', onLeave);
     });
+  }
+
+  /* ---------------------------------------------------------
+     Parallax: background layers drift at a fraction of scroll
+     speed, eased with a lerp each frame so the motion reads as
+     smooth momentum rather than a 1:1 scroll-jack. Purely
+     transform-based (GPU composited), only ever active while
+     something is actually moving.
+  --------------------------------------------------------- */
+  function initParallax() {
+    const nodes = document.querySelectorAll('[data-parallax]');
+    if (!nodes.length) return;
+
+    const layers = Array.from(nodes).map((el) => ({
+      el,
+      speed: parseFloat(el.getAttribute('data-parallax')) || 0,
+      current: 0,
+      target: 0,
+    }));
+
+    const LERP = 0.09;
+    let rafId = null;
+
+    const readScroll = () => {
+      const y = window.scrollY;
+      layers.forEach((layer) => { layer.target = y * layer.speed; });
+    };
+
+    const tick = () => {
+      let stillMoving = false;
+
+      layers.forEach((layer) => {
+        const delta = layer.target - layer.current;
+        if (Math.abs(delta) > 0.05) {
+          layer.current += delta * LERP;
+          stillMoving = true;
+        } else {
+          layer.current = layer.target;
+        }
+        layer.el.style.transform = `translate3d(0, ${layer.current.toFixed(2)}px, 0)`;
+      });
+
+      rafId = stillMoving ? requestAnimationFrame(tick) : null;
+    };
+
+    const onScroll = () => {
+      readScroll();
+      if (rafId === null) rafId = requestAnimationFrame(tick);
+    };
+
+    readScroll();
+    layers.forEach((layer) => { layer.current = layer.target; });
+    tick();
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', readScroll, { passive: true });
   }
 })();
