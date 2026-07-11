@@ -374,9 +374,9 @@ img, svg { display: block; max-width: 100%; }
 .hero__title {
   font-size: clamp(2.4rem, 5.6vw, 4.2rem);
   line-height: 1.08;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   color: var(--white);
-  max-width: 15ch;
+  max-width: 156ch;
 }
 .text-gradient {
   background: linear-gradient(100deg, var(--white), var(--gray-500) 85%);
@@ -784,15 +784,27 @@ img, svg { display: block; max-width: 100%; }
 .ffpet-care_banner{
   position: relative;
   width: 100%;
-  height: 100px;
-  background-image: url(images/ffpet-care_banner.png);
+  height: 120px;
+  background-image: url(images/icons/ffpet-care_banner.png);
   background-position: center;
   background-size:cover;
-  filter: grayscale(1) contrast(1.05);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-soft);
   overflow: hidden;
 }
+
+.ambiental_banner{
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background-image: url(images/icons/ambiental_banner.png);
+  background-position: center;
+  background-size:cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
 /* ---------- Preview elements ---------- */
 .preview__topbar { display: flex; gap: 5px; margin-bottom: 16px; position: relative; z-index: 1; }
 .preview__topbar span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.14); }
@@ -831,6 +843,20 @@ img, svg { display: block; max-width: 100%; }
 .project-card__body h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 10px; }
 .project-card__body p { color: var(--text-secondary); font-size: 0.96rem; }
 
+.project-card__footer{
+  width: 100%; 
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 60px;
+}
+.project-card__footer--technologies{
+  /* filter: grayscale(100%); */
+}
+.expo__{
+  /* filter: invert(100%) */
+}
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
