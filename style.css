@@ -756,8 +756,23 @@ img, svg { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(120px circle at 80% 10%, rgba(96,165,250,0.35), transparent 70%);
+  /* background: radial-gradient(120px circle at 80% 10%, rgba(96,165,250,0.35), transparent 70%); */
 }
+/* ============================================================
+  COMPANIES BANNERS
+============================================================ */
+.ffpet-care_banner{
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-image: url(images/ffpet-care_banner.png);
+  background-position: center;
+  background-size:cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+/* ---------- Preview elements ---------- */
 .preview__topbar { display: flex; gap: 5px; margin-bottom: 16px; position: relative; z-index: 1; }
 .preview__topbar span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); }
 
