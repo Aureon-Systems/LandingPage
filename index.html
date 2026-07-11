@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aureon Systems — Software sob medida para empresas que querem crescer</title>
+<meta name="description" content="A Aureon Systems desenvolve aplicativos Android, sistemas web personalizados e painéis administrativos para empresas que precisam de tecnologia sólida e escalável.">
+<meta name="keywords" content="desenvolvimento de software, aplicativo android, sistema web, painel administrativo, automação, landing page, integração de api">
+<meta property="og:title" content="Aureon Systems — Transformamos ideias em software">
+<meta property="og:description" content="Aplicativos Android, sistemas web e soluções digitais sob medida para empresas que desejam crescer.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2307111F%22/><path d=%22M50 20 L78 75 L22 75 Z%22 fill=%22%233B82F6%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner container">
+    <a href="#" class="brand" aria-label="Aureon Systems — início">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <polygon points="16,4 29,27 3,27" fill="none" stroke="url(#gradMark)" stroke-width="2.4" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="gradMark" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0" stop-color="#60A5FA"/>
+              <stop offset="1" stop-color="#2563EB"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand__text">AUREON <span>SYSTEMS</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+      <a href="#hero">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="navbar__actions">
+      <a href="#contato" class="btn btn--primary btn--sm">Solicitar orçamento</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__aurora" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <div class="hero__content" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Engenharia de software sob medida</p>
+        <h1 class="hero__title">
+          Transformamos ideias em <span class="text-gradient">aplicativos e sistemas</span> que geram resultados.
+        </h1>
+        <p class="hero__subtitle">
+          Desenvolvemos aplicativos Android (APK), sistemas web personalizados e soluções digitais modernas para empresas que desejam crescer.
+        </p>
+        <div class="hero__cta">
+          <a href="#contato" class="btn btn--primary btn--lg">
+            Solicitar orçamento
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#servicos" class="btn btn--ghost btn--lg">Conhecer serviços</a>
+        </div>
+
+        <div class="hero__trust">
+          <div class="hero__trust-item"><strong>+40</strong><span>projetos entregues</span></div>
+          <div class="hero__trust-divider"></div>
+          <div class="hero__trust-item"><strong>99%</strong><span>satisfação dos clientes</span></div>
+          <div class="hero__trust-divider"></div>
+          <div class="hero__trust-item"><strong>24/7</strong><span>suporte dedicado</span></div>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-reveal data-reveal-delay="1">
+        <div class="scene">
+          <!-- Laptop / dashboard -->
+          <div class="float-card scene__laptop">
+            <div class="laptop__screen">
+              <div class="laptop__topbar">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="laptop__body">
+                <div class="mini-sidebar">
+                  <div class="mini-sidebar__dot active"></div>
+                  <div class="mini-sidebar__dot"></div>
+                  <div class="mini-sidebar__dot"></div>
+                  <div class="mini-sidebar__dot"></div>
+                </div>
+                <div class="mini-content">
+                  <div class="mini-stat-row">
+                    <div class="mini-stat"><span class="mini-stat__label">Receita</span><span class="mini-stat__value">R$ 128k</span></div>
+                    <div class="mini-stat"><span class="mini-stat__label">Usuários</span><span class="mini-stat__value">12.4k</span></div>
+                  </div>
+                  <div class="mini-chart">
+                    <span style="--h:35%"></span>
+                    <span style="--h:55%"></span>
+                    <span style="--h:40%"></span>
+                    <span style="--h:70%"></span>
+                    <span style="--h:60%"></span>
+                    <span style="--h:90%"></span>
+                    <span style="--h:75%"></span>
+                  </div>
+                  <div class="mini-line" aria-hidden="true">
+                    <svg viewBox="0 0 220 60" preserveAspectRatio="none">
+                      <polyline points="0,45 30,35 60,40 90,20 120,28 150,10 180,18 220,4" fill="none" stroke="#60A5FA" stroke-width="2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop__base"></div>
+          </div>
+
+          <!-- Code card -->
+          <div class="float-card scene__code">
+            <div class="code__dots"><span></span><span></span><span></span></div>
+            <div class="code__lines">
+              <p><span class="tok-key">function</span> <span class="tok-fn">deploy</span>() {</p>
+              <p>&nbsp;&nbsp;<span class="tok-key">const</span> app = <span class="tok-fn">build</span>();</p>
+              <p>&nbsp;&nbsp;app.<span class="tok-fn">ship</span>(<span class="tok-str">'produção'</span>);</p>
+              <p>}</p>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="float-card scene__phone">
+            <div class="phone__notch"></div>
+            <div class="phone__screen">
+              <div class="phone__header"></div>
+              <div class="phone__card"></div>
+              <div class="phone__card phone__card--sm"></div>
+              <div class="phone__pill"></div>
+            </div>
+          </div>
+
+          <!-- floating badge -->
+          <div class="float-card scene__badge">
+            <span class="badge__ring"></span>
+            <div>
+              <strong>+27%</strong>
+              <small>performance</small>
+            </div>
+          </div>
+
+          <div class="scene__glow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- LOGOS / SOCIAL PROOF STRIP -->
+  <section class="strip" aria-label="Setores atendidos">
+    <div class="container strip__inner" data-reveal>
+      <span class="strip__label">Tecnologia aplicada a setores como</span>
+      <div class="strip__items">
+        <span>Varejo</span><span>Saúde</span><span>Educação</span><span>Logística</span><span>Serviços</span><span>Indústria</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Serviços</p>
+        <h2 class="section__title">Soluções completas, do app ao back-office.</h2>
+        <p class="section__desc">Um único parceiro para planejar, construir e manter cada camada do seu produto digital.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card card--service" data-reveal>
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="19" x2="14" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Aplicativos Android (APK)</h3>
+          <p>Apps nativos e híbridos, publicados na Play Store, com performance e UX pensados para o dia a dia do seu cliente.</p>
+        </article>
+
+        <article class="card card--service" data-reveal data-reveal-delay="1">
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="18" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Sistemas Web</h3>
+          <p>Plataformas sob medida — ERPs, CRMs e portais — construídas para escalar junto com a sua operação.</p>
+        </article>
+
+        <article class="card card--service" data-reveal data-reveal-delay="2">
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Landing Pages</h3>
+          <p>Páginas de alta conversão, rápidas e otimizadas para SEO, feitas para transformar visitas em clientes.</p>
+        </article>
+
+        <article class="card card--service" data-reveal>
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Automações</h3>
+          <p>Processos repetitivos eliminados com fluxos automatizados que economizam tempo e reduzem erros.</p>
+        </article>
+
+        <article class="card card--service" data-reveal data-reveal-delay="1">
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="13" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Painéis Administrativos</h3>
+          <p>Dashboards claros e objetivos para acompanhar métricas, times e resultados em tempo real.</p>
+        </article>
+
+        <article class="card card--service" data-reveal data-reveal-delay="2">
+          <div class="card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8.7" y1="10.6" x2="15.3" y2="7.4" stroke="currentColor" stroke-width="1.5"/><line x1="8.7" y1="13.4" x2="15.3" y2="16.6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Integrações com APIs</h3>
+          <p>Conectamos seu sistema a pagamentos, ERPs, marketplaces e qualquer serviço externo que seu negócio precise.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE ESCOLHER -->
+  <section class="section section--tinted" id="diferenciais">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Por que a Aureon</p>
+        <h2 class="section__title">Padrão de engenharia que grandes empresas exigem.</h2>
+        <p class="section__desc">Não vendemos apenas código — entregamos uma base sólida para o crescimento do seu negócio.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card card--feature" data-reveal>
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v5c0 5-3.4 7.9-8 9-4.6-1.1-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Arquitetura moderna</h3>
+          <p>Sistemas desenhados para durar, com padrões que suportam crescimento sem retrabalho.</p>
+        </article>
+        <article class="card card--feature" data-reveal data-reveal-delay="1">
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 3v4M16 3v4M4 9h16M5 5h14a1 1 0 011 1v13a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Código limpo</h3>
+          <p>Cada linha pensada para ser lida, mantida e evoluída por qualquer equipe no futuro.</p>
+        </article>
+        <article class="card card--feature" data-reveal data-reveal-delay="2">
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Projetos escaláveis</h3>
+          <p>Da primeira versão ao produto maduro, sem precisar recomeçar do zero.</p>
+        </article>
+        <article class="card card--feature" data-reveal>
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h8l-1 8 11-14h-8l1-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Entrega rápida</h3>
+          <p>Processos enxutos e comunicação direta para reduzir o tempo entre ideia e lançamento.</p>
+        </article>
+        <article class="card card--feature" data-reveal data-reveal-delay="1">
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Design premium</h3>
+          <p>Interfaces cuidadas em cada detalhe, alinhadas ao padrão de produtos internacionais.</p>
+        </article>
+        <article class="card card--feature" data-reveal data-reveal-delay="2">
+          <div class="card__icon card__icon--outline">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Suporte dedicado</h3>
+          <p>Um time acessível, antes e depois da entrega, para o seu sistema nunca parar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Processo</p>
+        <h2 class="section__title">Um caminho claro, do briefing à entrega.</h2>
+        <p class="section__desc">Cada etapa existe para reduzir risco e aumentar a previsibilidade do seu projeto.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__index">01</span>
+          <div class="timeline__body">
+            <h3>Briefing</h3>
+            <p>Entendemos seu negócio, objetivos e restrições antes de desenhar qualquer solução.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal data-reveal-delay="1">
+          <span class="timeline__index">02</span>
+          <div class="timeline__body">
+            <h3>Planejamento</h3>
+            <p>Definimos escopo, arquitetura e cronograma com metas claras para cada fase.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal data-reveal-delay="2">
+          <span class="timeline__index">03</span>
+          <div class="timeline__body">
+            <h3>Design</h3>
+            <p>Prototipamos a experiência completa antes de escrever a primeira linha de código.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <span class="timeline__index">04</span>
+          <div class="timeline__body">
+            <h3>Desenvolvimento</h3>
+            <p>Construímos com entregas incrementais, para você acompanhar cada avanço.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal data-reveal-delay="1">
+          <span class="timeline__index">05</span>
+          <div class="timeline__body">
+            <h3>Testes</h3>
+            <p>Validação rigorosa de funcionalidade, performance e segurança antes do lançamento.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal data-reveal-delay="2">
+          <span class="timeline__index">06</span>
+          <div class="timeline__body">
+            <h3>Entrega</h3>
+            <p>Publicação, treinamento da equipe e suporte contínuo após o go-live.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ESTATÍSTICAS -->
+  <section class="stats" id="estatisticas">
+    <div class="stats__aurora" aria-hidden="true"></div>
+    <div class="container">
+      <div class="grid grid--4 stats__grid">
+        <div class="stat" data-reveal>
+          <span class="stat__value" data-count="40" data-suffix="+">0</span>
+          <span class="stat__label">projetos entregues</span>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="1">
+          <span class="stat__value" data-count="100" data-suffix="%">0</span>
+          <span class="stat__label">dedicação</span>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="2">
+          <span class="stat__value" data-count="99" data-suffix="%">0</span>
+          <span class="stat__label">satisfação</span>
+        </div>
+        <div class="stat" data-reveal data-reveal-delay="3">
+          <span class="stat__value" data-count="5" data-suffix="★">0</span>
+          <span class="stat__label">avaliação média</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section" id="projetos">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Projetos</p>
+        <h2 class="section__title">Alguns produtos que já colocamos no ar.</h2>
+        <p class="section__desc">Uma amostra de sistemas construídos sob medida para diferentes segmentos.</p>
+      </div>
+
+      <div class="grid grid--2">
+        <article class="project-card" data-reveal>
+          <div class="project-card__preview project-card__preview--petcare" aria-hidden="true">
+            <div class="preview__topbar"><span></span><span></span><span></span></div>
+            <div class="preview__bars"><span style="--h:60%"></span><span style="--h:85%"></span><span style="--h:45%"></span><span style="--h:70%"></span></div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Sistema Web</span>
+            <h3>PetCare</h3>
+            <p>Sistema completo de gestão para clínicas veterinárias: agenda, prontuários e faturamento em um só lugar.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal data-reveal-delay="1">
+          <div class="project-card__preview project-card__preview--shopwave" aria-hidden="true">
+            <div class="preview__topbar"><span></span><span></span><span></span></div>
+            <div class="preview__cards"><span></span><span></span><span></span></div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">E-commerce</span>
+            <h3>ShopWave</h3>
+            <p>Catálogo digital com carrinho, pagamentos integrados e painel de pedidos em tempo real.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal data-reveal-delay="2">
+          <div class="project-card__preview project-card__preview--educore" aria-hidden="true">
+            <div class="preview__topbar"><span></span><span></span><span></span></div>
+            <div class="preview__list"><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Sistema Web</span>
+            <h3>EduCore</h3>
+            <p>Plataforma escolar com boletins, frequência e comunicação entre pais, alunos e professores.</p>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal data-reveal-delay="3">
+          <div class="project-card__preview project-card__preview--smartstock" aria-hidden="true">
+            <div class="preview__topbar"><span></span><span></span><span></span></div>
+            <div class="preview__line"><svg viewBox="0 0 220 60" preserveAspectRatio="none"><polyline points="0,50 30,40 60,45 90,20 120,30 150,12 180,22 220,8" fill="none" stroke="#60A5FA" stroke-width="2"/></svg></div>
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tag">Painel Administrativo</span>
+            <h3>SmartStock</h3>
+            <p>Controle de estoque com alertas automáticos, previsão de demanda e integração com fornecedores.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section section--tinted" id="depoimentos">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Depoimentos</p>
+        <h2 class="section__title">Quem já trabalhou com a gente, confirma.</h2>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="testimonial" data-reveal>
+          <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>"A Aureon entendeu exatamente o que a nossa clínica precisava. O sistema reduziu nosso tempo de agendamento pela metade."</p>
+          <div class="testimonial__author">
+            <span class="avatar" style="--h:210;--s:70%;--l:55%">MC</span>
+            <div>
+              <strong>Marina Costa</strong>
+              <small>Diretora, PetCare Clínica Veterinária</small>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial" data-reveal data-reveal-delay="1">
+          <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>"Profissionalismo do início ao fim. O app ficou pronto no prazo e a comunicação foi sempre muito clara."</p>
+          <div class="testimonial__author">
+            <span class="avatar" style="--h:225;--s:70%;--l:55%">RA</span>
+            <div>
+              <strong>Rodrigo Almeida</strong>
+              <small>Fundador, ShopWave</small>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial" data-reveal data-reveal-delay="2">
+          <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>"O painel que a Aureon construiu virou o coração da nossa operação. Simples de usar e extremamente rápido."</p>
+          <div class="testimonial__author">
+            <span class="avatar" style="--h:200;--s:70%;--l:55%">JS</span>
+            <div>
+              <strong>Juliana Santos</strong>
+              <small>COO, SmartStock Logística</small>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <div class="section__head" data-reveal>
+        <p class="eyebrow"><span class="eyebrow__dot"></span> Dúvidas frequentes</p>
+        <h2 class="section__title">Perguntas que ouvimos com frequência.</h2>
+      </div>
+
+      <div class="accordion" data-reveal>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Quanto tempo demora um projeto?</span>
+            <svg class="accordion__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="accordion__panel">
+            <p>Depende do escopo: landing pages levam de 1 a 2 semanas, enquanto sistemas completos costumam levar de 4 a 12 semanas. Definimos um cronograma detalhado ainda no planejamento.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Quanto custa um projeto com a Aureon?</span>
+            <svg class="accordion__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="accordion__panel">
+            <p>O investimento varia de acordo com a complexidade do projeto. Após o briefing, enviamos uma proposta detalhada e transparente, sem taxas escondidas.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Vocês fazem manutenção depois da entrega?</span>
+            <svg class="accordion__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="accordion__panel">
+            <p>Sim. Oferecemos planos de manutenção e suporte contínuo, incluindo atualizações, correções e novas funcionalidades.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>O aplicativo é publicado na Play Store?</span>
+            <svg class="accordion__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="accordion__panel">
+            <p>Sim, cuidamos de todo o processo de publicação do seu app Android na Play Store, incluindo ficha, ícones e conformidade com as políticas da loja.</p>
+          </div>
+        </div>
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>O sistema funciona bem no celular?</span>
+            <svg class="accordion__icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="accordion__panel">
+            <p>Sim. Todos os sistemas que desenvolvemos são responsivos e testados em diferentes tamanhos de tela, do celular ao desktop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final" id="contato">
+    <div class="cta-final__aurora" aria-hidden="true"></div>
+    <div class="container cta-final__inner" data-reveal>
+      <h2>Vamos transformar sua ideia em realidade.</h2>
+      <p>Conte um pouco sobre o seu projeto e receba uma proposta clara, sem enrolação.</p>
+      <a href="mailto:contato@aureonsystems.com" class="btn btn--primary btn--xl">
+        Solicitar orçamento
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24">
+            <polygon points="16,4 29,27 3,27" fill="none" stroke="#3B82F6" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand__text">AUREON <span>SYSTEMS</span></span>
+      </a>
+      <p>Software sob medida para empresas que querem crescer.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Empresa</h4>
+      <a href="#hero">Início</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#processo">Processo</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Serviços</h4>
+      <a href="#servicos">Aplicativos Android</a>
+      <a href="#servicos">Sistemas Web</a>
+      <a href="#servicos">Painéis Administrativos</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <a href="mailto:contato@aureonsystems.com">contato@aureonsystems.com</a>
+      <a href="tel:+5500000000000">+55 (00) 00000-0000</a>
+      <div class="footer__social">
+        <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="10" x2="7" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="7" r="1" fill="currentColor"/><path d="M11 17v-4a2 2 0 014 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="10" x2="11" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.5"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.9-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>&copy; <span id="year"></span> Aureon Systems. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
