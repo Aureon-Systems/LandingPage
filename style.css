@@ -793,11 +793,11 @@ img, svg { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-.ambiental_banner{
+.thay-catsitter_banner{
   position: relative;
   width: 100%;
   height: 120px;
-  background-image: url(images/icons/ambiental_banner.png);
+  background-image: url(images/icons/thay-catsitter_banner.png);
   background-position: center;
   background-size:cover;
   border-radius: var(--radius-lg);
@@ -849,7 +849,7 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   display: flex;
-  gap: 60px;
+  gap: 50px;
 }
 .project-card__footer--technologies{
   /* filter: grayscale(100%); */
