@@ -157,7 +157,7 @@ img, svg { display: block; max-width: 100%; }
 
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand__mark { display: block; height: 15px; width: auto; }
-.brand__wordmark { display: block; height: 150px; width: 150px}
+.brand__wordmark { display: block; height: 150px; width: 150px; transition: 0.3s ease-in-out; }
 .brand__suffix {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -805,6 +805,18 @@ img, svg { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
+.dunar-lifestyle_banner{
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background-image: url(images/icons/dunar-lifestyle_banner.png);
+  background-position: center;
+  background-size:cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+
 /* ---------- Preview elements ---------- */
 .preview__topbar { display: flex; gap: 5px; margin-bottom: 16px; position: relative; z-index: 1; }
 .preview__topbar span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.14); }
@@ -976,7 +988,8 @@ img, svg { display: block; max-width: 100%; }
   padding-bottom: 56px;
 }
 .footer__brand .brand__mark { height: 12px; }
-.footer__brand .brand__wordmark { width:150px; height: 150px; }
+.footer__brand .brand__wordmark { width:150px; height: 150px; transition: 0.3s ease-in-out; }
+.brand__wordmark:hover { transform: scale(1.10); }
 .footer__brand p { margin-top: 14px; color: var(--text-muted); font-size: 0.92rem; max-width: 32ch; }
 .footer__col { display: flex; flex-direction: column; gap: 14px; }
 .footer__col h4 { font-family: var(--font-mono); color: var(--white); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; font-weight: 500; }
