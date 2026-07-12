@@ -1,5 +1,5 @@
 /* ============================================================
-   AUREON SYSTEMS — script.js
+   AUREO SYSTEMS — script.js
    Modules: navbar, mobile menu, scroll reveal, counters,
             accordion, cursor glow, card tilt, parallax,
             smooth anchor scroll
