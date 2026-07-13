@@ -21,6 +21,7 @@
     initScrollReveal();
     initCounters();
     initAccordion();
+    initProjectCarousels();
     if (!prefersReducedMotion) {
       initCursorGlow();
       initCardTilt();
@@ -201,6 +202,268 @@
         panel.style.maxHeight = isOpen ? null : `${panel.scrollHeight}px`;
       });
     });
+  }
+
+  /* ---------------------------------------------------------
+     Project cards: click opens a centered lightbox — blurred
+     backdrop, a "Voltar" button, and a curved 3D ribbon
+     carousel of screenshots. One shared lightbox is built once
+     and reused; each card just hands it a fresh image list.
+  --------------------------------------------------------- */
+  function initProjectCarousels() {
+    const cards = document.querySelectorAll('.project-card[data-images]');
+    if (!cards.length) return;
+
+    const lightbox = buildProjectLightbox();
+    document.body.appendChild(lightbox.root);
+
+    cards.forEach((card) => {
+      let images = [];
+      try {
+        images = JSON.parse(card.getAttribute('data-images') || '[]');
+      } catch (err) {
+        images = [];
+      }
+      if (!images.length) return;
+
+      const projectName = card.querySelector('h3')?.textContent.trim() || 'projeto';
+
+      const open = (e) => {
+        if (e) e.stopPropagation();
+        lightbox.open(images, projectName);
+      };
+
+      card.querySelector('.project-card__expand-toggle')?.addEventListener('click', open);
+
+      // Clicking anywhere on the card (outside the tech-stack
+      // footer) also opens the lightbox.
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.project-card__footer')) return;
+        open(e);
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Builds the shared lightbox: blurred backdrop + centered
+     panel with a "Voltar" button and a stage where a fresh
+     carousel is mounted each time it opens.
+  --------------------------------------------------------- */
+  function buildProjectLightbox() {
+    const root = document.createElement('div');
+    root.className = 'lightbox';
+    root.setAttribute('aria-hidden', 'true');
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'lightbox__backdrop';
+
+    const panel = document.createElement('div');
+    panel.className = 'lightbox__panel';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+
+    const head = document.createElement('div');
+    head.className = 'lightbox__head';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'lightbox__close';
+    closeBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Voltar</span>';
+
+    const titleEl = document.createElement('p');
+    titleEl.className = 'lightbox__title';
+
+    head.append(closeBtn, titleEl);
+
+    const stageWrap = document.createElement('div');
+    stageWrap.className = 'lightbox__stage-wrap';
+
+    panel.append(head, stageWrap);
+    root.append(backdrop, panel);
+
+    let lastFocused = null;
+    let onResize = null;
+
+    const onKeydown = (e) => { if (e.key === 'Escape') close(); };
+
+    function close() {
+      root.classList.remove('is-open');
+      root.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      window.removeEventListener('keydown', onKeydown);
+      if (onResize) window.removeEventListener('resize', onResize);
+      onResize = null;
+      stageWrap.innerHTML = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function open(images, projectName) {
+      lastFocused = document.activeElement;
+      titleEl.textContent = projectName;
+      stageWrap.innerHTML = '';
+      const carousel = buildCarousel3D(images, projectName);
+      stageWrap.appendChild(carousel.root);
+
+      root.classList.add('is-open');
+      root.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      window.addEventListener('keydown', onKeydown);
+      onResize = () => carousel.layout();
+      window.addEventListener('resize', onResize, { passive: true });
+      requestAnimationFrame(() => carousel.root.focus());
+    }
+
+    backdrop.addEventListener('click', close);
+    closeBtn.addEventListener('click', close);
+
+    return { root, open, close };
+  }
+
+  /* ---------------------------------------------------------
+     Builds a curved "ribbon" 3D carousel (DOM + behavior) for
+     a given list of image paths. Cards bow away from the
+     center on a virtual curve — translate/rotateX/rotateY/
+     rotateZ/scale — pure CSS transforms, GPU-composited, no
+     layout thrashing on frame. Returns { root, layout }.
+  --------------------------------------------------------- */
+  function buildCarousel3D(images, projectName) {
+    const root = document.createElement('div');
+    root.className = 'carousel3d';
+    root.setAttribute('role', 'region');
+    root.setAttribute('aria-roledescription', 'carrossel');
+    root.setAttribute('aria-label', `Capturas de tela — ${projectName}`);
+    root.tabIndex = 0;
+
+    const stage = document.createElement('div');
+    stage.className = 'carousel3d__stage';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'carousel3d__nav carousel3d__nav--prev';
+    prevBtn.setAttribute('aria-label', 'Captura anterior');
+    prevBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'carousel3d__nav carousel3d__nav--next';
+    nextBtn.setAttribute('aria-label', 'Próxima captura');
+    nextBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    const dots = document.createElement('div');
+    dots.className = 'carousel3d__dots';
+
+    const count = images.length;
+    let current = 0;
+
+    const slides = images.map((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel3d__slide';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `Captura de tela ${i + 1} de ${projectName}`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.addEventListener('error', () => {
+        img.remove();
+        slide.classList.add('carousel3d__slide--placeholder');
+        slide.textContent = 'Prévia em breve';
+      });
+
+      slide.appendChild(img);
+      slide.addEventListener('click', () => goTo(i));
+      stage.appendChild(slide);
+      return slide;
+    });
+
+    const dotEls = images.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel3d__dot';
+      dot.setAttribute('aria-label', `Ir para captura ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dots.appendChild(dot);
+      return dot;
+    });
+
+    root.append(prevBtn, stage, nextBtn, dots);
+
+    // Circular placement: each slide sits on a point of a virtual
+    // circle (sin/cos), facing tangent to it. This is what makes
+    // the side slides curve INWARD and read as connected segments
+    // of a ring/cylinder, rather than fanning outward.
+    function layout() {
+      const isMobile = window.innerWidth < 640;
+      const angleStep = isMobile ? 10 : 32; // degrees between slides, around the circle
+      const radius    = isMobile ? 210 : 720; // virtual circle radius in px
+      const bank      = isMobile ? 0  : -5;  // subtle roll, like a wheel banking
+
+      slides.forEach((slide, i) => {
+        let offset = i - current;
+        if (offset > count / 2) offset -= count;
+        if (offset < -count / 2) offset += count;
+
+        const abs = Math.abs(offset);
+        const angleDeg = offset * angleStep;
+        const angleRad = angleDeg * Math.PI / 180;
+
+        const tx = Math.sin(angleRad) * radius;
+        const tz = (Math.cos(angleRad) - 1) * radius;
+        const scale = Math.max(1 - abs * 0.12, 0.6);
+        const opacity = abs > 2 ? 0 : Math.max(1 - abs * 0.3, 0);
+
+        slide.style.transform =
+          `translate3d(${tx}px, 0, ${tz}px) ` +
+          `rotateY(${-angleDeg}deg) ` +
+          `rotateZ(${-Math.sin(angleRad) * bank}deg) ` +
+          `scale(${scale})`;
+        slide.style.opacity = String(opacity);
+        slide.style.zIndex = String(20 - abs);
+        slide.style.pointerEvents = abs <= 1 ? 'auto' : 'none';
+        slide.classList.toggle('is-active', offset === 0);
+      });
+
+      dotEls.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+      prevBtn.disabled = count <= 1;
+      nextBtn.disabled = count <= 1;
+    }
+
+    function goTo(index) {
+      current = ((index % count) + count) % count;
+      layout();
+    }
+
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
+
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    // Swipe: Pointer Events unify mouse-drag and touch in one path.
+    let dragStartX = null;
+    let dragging = false;
+
+    stage.addEventListener('pointerdown', (e) => {
+      dragStartX = e.clientX;
+      dragging = true;
+    });
+
+    const endDrag = (e) => {
+      if (!dragging || dragStartX === null) return;
+      const delta = e.clientX - dragStartX;
+      if (Math.abs(delta) > 40) goTo(current + (delta < 0 ? 1 : -1));
+      dragging = false;
+      dragStartX = null;
+    };
+
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointerleave', () => { dragging = false; dragStartX = null; });
+
+    layout();
+
+    return { root, layout };
   }
 
   /* ---------------------------------------------------------
